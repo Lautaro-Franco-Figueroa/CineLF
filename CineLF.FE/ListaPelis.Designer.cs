@@ -47,6 +47,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.DGVFood = new System.Windows.Forms.DataGridView();
             this.btAceptarFood = new System.Windows.Forms.Button();
+            this.btBuscarPeli = new System.Windows.Forms.Button();
+            this.btBorrarPeli = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPelis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVFood)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +83,7 @@
             // txtSillas
             // 
             this.txtSillas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSillas.Location = new System.Drawing.Point(289, 89);
+            this.txtSillas.Location = new System.Drawing.Point(289, 88);
             this.txtSillas.Name = "txtSillas";
             this.txtSillas.Size = new System.Drawing.Size(100, 20);
             this.txtSillas.TabIndex = 2;
@@ -138,11 +140,11 @@
             // btAceptar
             // 
             this.btAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btAceptar.Location = new System.Drawing.Point(568, 89);
+            this.btAceptar.Location = new System.Drawing.Point(568, 84);
             this.btAceptar.Name = "btAceptar";
-            this.btAceptar.Size = new System.Drawing.Size(78, 20);
+            this.btAceptar.Size = new System.Drawing.Size(78, 30);
             this.btAceptar.TabIndex = 11;
-            this.btAceptar.Text = "Aceptar";
+            this.btAceptar.Text = "Agregar";
             this.btAceptar.UseVisualStyleBackColor = true;
             this.btAceptar.Visible = false;
             this.btAceptar.Click += new System.EventHandler(this.btAceptar_Click);
@@ -208,7 +210,7 @@
             // txtCantidad
             // 
             this.txtCantidad.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCantidad.Location = new System.Drawing.Point(289, 89);
+            this.txtCantidad.Location = new System.Drawing.Point(289, 114);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtCantidad.TabIndex = 18;
@@ -219,7 +221,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(286, 73);
+            this.label5.Location = new System.Drawing.Point(286, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 19;
@@ -239,14 +241,36 @@
             // btAceptarFood
             // 
             this.btAceptarFood.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btAceptarFood.Location = new System.Drawing.Point(568, 88);
+            this.btAceptarFood.Location = new System.Drawing.Point(652, 84);
             this.btAceptarFood.Name = "btAceptarFood";
-            this.btAceptarFood.Size = new System.Drawing.Size(78, 20);
+            this.btAceptarFood.Size = new System.Drawing.Size(78, 30);
             this.btAceptarFood.TabIndex = 21;
-            this.btAceptarFood.Text = "Aceptar";
+            this.btAceptarFood.Text = "Agregar";
             this.btAceptarFood.UseVisualStyleBackColor = true;
             this.btAceptarFood.Visible = false;
             this.btAceptarFood.Click += new System.EventHandler(this.btAceptarFood_Click);
+            // 
+            // btBuscarPeli
+            // 
+            this.btBuscarPeli.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btBuscarPeli.Location = new System.Drawing.Point(568, 124);
+            this.btBuscarPeli.Name = "btBuscarPeli";
+            this.btBuscarPeli.Size = new System.Drawing.Size(78, 30);
+            this.btBuscarPeli.TabIndex = 22;
+            this.btBuscarPeli.Text = "Buscar";
+            this.btBuscarPeli.UseVisualStyleBackColor = true;
+            this.btBuscarPeli.Click += new System.EventHandler(this.btBuscarPeli_Click);
+            // 
+            // btBorrarPeli
+            // 
+            this.btBorrarPeli.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btBorrarPeli.Location = new System.Drawing.Point(568, 160);
+            this.btBorrarPeli.Name = "btBorrarPeli";
+            this.btBorrarPeli.Size = new System.Drawing.Size(78, 30);
+            this.btBorrarPeli.TabIndex = 23;
+            this.btBorrarPeli.Text = "Borrar";
+            this.btBorrarPeli.UseVisualStyleBackColor = true;
+            this.btBorrarPeli.Click += new System.EventHandler(this.btBorrarPeli_Click);
             // 
             // ListaPelis
             // 
@@ -254,6 +278,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(763, 450);
+            this.Controls.Add(this.btBorrarPeli);
+            this.Controls.Add(this.btBuscarPeli);
             this.Controls.Add(this.btAceptarFood);
             this.Controls.Add(this.DGVFood);
             this.Controls.Add(this.label5);
@@ -303,5 +329,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView DGVFood;
         private System.Windows.Forms.Button btAceptarFood;
+        private System.Windows.Forms.Button btBuscarPeli;
+        private System.Windows.Forms.Button btBorrarPeli;
     }
 }

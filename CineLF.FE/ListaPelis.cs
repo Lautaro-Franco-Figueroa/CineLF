@@ -103,5 +103,53 @@ namespace CineLF.FE
             DGVPelis.Visible = false;
             DGVFood.Visible = false;
         }
+
+        private void btBuscarPeli_Click(object sender, EventArgs e)
+        {
+            txtName.Text = "";
+            txtPrecio.Text = "";
+            txtTime.Text = "";
+            txtSillas.Text = "";
+
+            Pelicula pelicula = new Pelicula(txtName.Text, txtPrecio.Text, txtTime.Text, txtSillas.Text);
+
+            pelicula = Peliculas.BuscarPelicula(txtName.Text, txtPrecio.Text, txtTime.Text, txtSillas.Text);
+
+            if (pelicula.Nombre != null)
+            {
+                txtName.Text = pelicula.Nombre.ToUpper();
+                txtPrecio.Text = pelicula.Precio;
+                txtSillas.Text = pelicula.Horario;
+                txtTime.Text = pelicula.Asientos.ToString();
+            }
+
+            txtSillas.Focus();
+            txtSillas.SelectAll();
+        }
+
+        private void btBorrarPeli_Click(object sender, EventArgs e)
+        {
+            bool res = Peliculas.BorrarPelicula(txtName.Text.ToUpper());
+
+            if (res)
+            {
+                LimpiarPantalla();
+            }
+            else
+            {
+                txtName.Focus();
+                txtName.SelectAll();
+            }
+        }
+
+        private void LimpiarPantalla()
+        {
+            txtName.Text = "";
+            txtPrecio.Text = "";
+            txtTime.Text = "";
+            txtSillas.Text = "";
+
+            txtName.Focus();
+        }
     }
 }

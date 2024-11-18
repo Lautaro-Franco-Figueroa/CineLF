@@ -30,7 +30,7 @@ namespace BE
                 ListaPelis.ReadXml("Peliculas.xml");
             }
         }
-       
+
         public void Insert(Pelicula Pelicula)
         {
             ListaPelis.Rows.Add(Pelicula);
@@ -43,6 +43,72 @@ namespace BE
             ListaPelis.WriteXml("Peliculas.xml");
         }
 
-        
+        public int BuscarFilaPeliculas(string Movie)
+        {
+            int fila = -1;
+
+            for (int i = 0; i < ListaPelis.Rows.Count; i++)
+            {
+                if (ListaPelis.Rows[i]["Nombre"].ToString() == Movie)
+                {
+                    fila = i;
+                    break;
+                }
+            }
+
+            return fila;
+        }
+
+        public Pelicula BuscarPelicula(string Movie, string Price, string Time, string Seat)
+        {
+            Pelicula Pelicula = new Pelicula(Movie, Price, Time, Seat);
+
+            for (int i = 0; i < ListaPelis.Rows.Count; i++)
+            {
+                if (ListaPelis.Rows[i]["Nombre"].ToString() == Movie)
+                {
+                    Pelicula.Nombre = ListaPelis.Rows[i]["Nombre"].ToString();
+                    Pelicula.Precio = ListaPelis.Rows[i]["Precio"].ToString();
+                    Pelicula.Asientos = System.Convert.ToInt32(ListaPelis.Rows[i]["Asientos"]);
+                    Pelicula.Horario = ListaPelis.Rows[i]["Horario"].ToString();
+                    break;
+                }
+            }
+            return Pelicula;
+        }
+
+        public bool BorrarPelicula(string Movie)
+        {
+            bool res = false;
+            int fila = BuscarFilaPeliculas(Movie);
+
+            if (fila != -1)
+            {
+                ListaPelis.Rows[fila].Delete();
+                ListaPelis.WriteXml("Peliculas.xml");
+                res = true;
+            }
+
+            return res;
+        }
+        public bool ModificarPelicula(Pelicula Pelicula)
+        {
+            bool res = false;
+
+
+            ListaPelis.Rows.Add();
+            int i = ListaPelis.Rows.Count - 1;
+
+            ListaPelis.Rows[i]["Patente"] = Pelicula.Nombre;
+            ListaPelis.Rows[i]["Modelo"] = Pelicula.Precio;
+            ListaPelis.Rows[i]["Marca"] = Pelicula.Horario;
+            ListaPelis.Rows[i]["Año"] = Pelicula.Asientos;
+
+            ListaPelis.WriteXml("Peliculas.xml");
+
+            res = true;
+
+            return res;
+        }
     }
 }
