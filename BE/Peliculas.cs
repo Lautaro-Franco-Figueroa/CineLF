@@ -13,8 +13,9 @@ namespace BE
 
         public Peliculas()
         {
+
             ListaPelis = new DataTable();
-            ListaPelis.TableName = "Peliculas";
+            ListaPelis.TableName = "Pelicula";
             ListaPelis.Columns.Add("Nombre");
             ListaPelis.Columns.Add("Precio");
             ListaPelis.Columns.Add("Asientos", typeof(int));
@@ -25,9 +26,9 @@ namespace BE
 
         public void LeerArchivo()
         {
-            if (System.IO.File.Exists("Peliculas.xml"))
+            if (System.IO.File.Exists("Pelicula.xml"))
             {
-                ListaPelis.ReadXml("Peliculas.xml");
+                ListaPelis.ReadXml("Pelicula.xml");
             }
         }
 
@@ -40,18 +41,18 @@ namespace BE
             ListaPelis.Rows[NuevoRenglon]["Horario"] = Pelicula.Horario;
             ListaPelis.Rows[NuevoRenglon]["Asientos"] = Pelicula.Asientos;
 
-            ListaPelis.WriteXml("Peliculas.xml");
+            ListaPelis.WriteXml("Pelicula.xml");
         }
 
         public int BuscarFilaPeliculas(string Movie)
         {
             int fila = -1;
 
-            for (int i = 0; i < ListaPelis.Rows.Count; i++)
+            for (int NuevoRenglon = 0; NuevoRenglon < ListaPelis.Rows.Count; NuevoRenglon++)
             {
-                if (ListaPelis.Rows[i]["Nombre"].ToString() == Movie)
+                if (ListaPelis.Rows[NuevoRenglon]["Nombre"].ToString() == Movie)
                 {
-                    fila = i;
+                    fila = NuevoRenglon;
                     break;
                 }
             }
@@ -85,7 +86,7 @@ namespace BE
             if (fila != -1)
             {
                 ListaPelis.Rows[fila].Delete();
-                ListaPelis.WriteXml("Peliculas.xml");
+                ListaPelis.WriteXml("Pelicula.xml");
                 res = true;
             }
 
@@ -97,14 +98,14 @@ namespace BE
 
 
             ListaPelis.Rows.Add();
-            int i = ListaPelis.Rows.Count - 1;
+            int NuevoRenglon = ListaPelis.Rows.Count - 1;
 
-            ListaPelis.Rows[i]["Patente"] = Pelicula.Nombre;
-            ListaPelis.Rows[i]["Modelo"] = Pelicula.Precio;
-            ListaPelis.Rows[i]["Marca"] = Pelicula.Horario;
-            ListaPelis.Rows[i]["Año"] = Pelicula.Asientos;
+            ListaPelis.Rows[NuevoRenglon]["Nombre"] = Pelicula.Nombre;
+            ListaPelis.Rows[NuevoRenglon]["Precio"] = Pelicula.Precio;
+            ListaPelis.Rows[NuevoRenglon]["Horario"] = Pelicula.Horario;
+            ListaPelis.Rows[NuevoRenglon]["Asientos"] = Pelicula.Asientos;
 
-            ListaPelis.WriteXml("Peliculas.xml");
+            ListaPelis.WriteXml("Pelicula.xml");
 
             res = true;
 

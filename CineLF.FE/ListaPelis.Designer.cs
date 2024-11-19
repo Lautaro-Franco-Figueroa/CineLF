@@ -74,7 +74,7 @@
             // txtTime
             // 
             this.txtTime.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTime.Location = new System.Drawing.Point(395, 89);
+            this.txtTime.Location = new System.Drawing.Point(289, 88);
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(100, 20);
             this.txtTime.TabIndex = 3;
@@ -83,7 +83,7 @@
             // txtSillas
             // 
             this.txtSillas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSillas.Location = new System.Drawing.Point(289, 88);
+            this.txtSillas.Location = new System.Drawing.Point(395, 88);
             this.txtSillas.Name = "txtSillas";
             this.txtSillas.Size = new System.Drawing.Size(100, 20);
             this.txtSillas.TabIndex = 2;
@@ -118,7 +118,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(392, 73);
+            this.label3.Location = new System.Drawing.Point(286, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 8;
@@ -130,7 +130,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(286, 73);
+            this.label4.Location = new System.Drawing.Point(392, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 9;

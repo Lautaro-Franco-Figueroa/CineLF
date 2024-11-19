@@ -26,7 +26,7 @@ namespace CineLF.FE
 
         private void btAceptar_Click(object sender, EventArgs e)
         {
-            Pelicula Pelicula = new Pelicula(txtName.Text, txtPrecio.Text, txtSillas.Text, txtTime.Text);
+            Pelicula Pelicula = new Pelicula(txtName.Text.ToUpper(), txtPrecio.Text, txtSillas.Text, txtTime.Text);
             Peliculas.Insert(Pelicula);
         }
         private void btAceptarFood_Click(object sender, EventArgs e)
@@ -106,16 +106,11 @@ namespace CineLF.FE
 
         private void btBuscarPeli_Click(object sender, EventArgs e)
         {
-            txtName.Text = "";
-            txtPrecio.Text = "";
-            txtTime.Text = "";
-            txtSillas.Text = "";
+            Pelicula pelicula = new Pelicula(txtName.Text.ToUpper(), txtPrecio.Text, txtTime.Text, txtSillas.Text);
 
-            Pelicula pelicula = new Pelicula(txtName.Text, txtPrecio.Text, txtTime.Text, txtSillas.Text);
+            pelicula = Peliculas.BuscarPelicula(txtName.Text.ToUpper(), txtPrecio.Text, txtTime.Text, txtSillas.Text);
 
-            pelicula = Peliculas.BuscarPelicula(txtName.Text, txtPrecio.Text, txtTime.Text, txtSillas.Text);
-
-            if (pelicula.Nombre != null)
+            if (pelicula.Nombre.ToUpper() != null)
             {
                 txtName.Text = pelicula.Nombre.ToUpper();
                 txtPrecio.Text = pelicula.Precio;
@@ -144,10 +139,6 @@ namespace CineLF.FE
 
         private void LimpiarPantalla()
         {
-            txtName.Text = "";
-            txtPrecio.Text = "";
-            txtTime.Text = "";
-            txtSillas.Text = "";
 
             txtName.Focus();
         }
